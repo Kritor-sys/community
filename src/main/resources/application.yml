@@ -1,0 +1,30 @@
+server:
+  port: 8090
+  servlet:
+    context-path: /community
+#datasource properties
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/community?characterEncoding=utf-8&useSSL=false&serverTimezone=Hongkong
+    username: root
+    password: 991017
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      maximum-pool-size: 15
+      minimum-idle: 5
+      idle-timeout: 30000
+  thymeleaf:
+    cache: false
+
+#mybatis properties
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.study.community.entity
+  configuration:
+    #启用自动生成组件
+    use-generated-keys: true
+    #字段和属性名相互转换
+    map-underscore-to-camel-case: true
+
+#logger
