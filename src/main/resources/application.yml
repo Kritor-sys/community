@@ -16,6 +16,14 @@ spring:
       idle-timeout: 30000
   thymeleaf:
     cache: false
+#email
+  mail:
+    host: smtp.163.com
+    port: 465
+    username: zybd0822@163.com
+    password: TIOBIDAXVOMJCTGE
+    protocol: smtps
+    properties.mail.smtp.ssl.enable: true
 
 #mybatis properties
 mybatis:
@@ -27,4 +35,5 @@ mybatis:
     #字段和属性名相互转换
     map-underscore-to-camel-case: true
 
-#logger
+#community
+community.path.domain: http://localhost:8090

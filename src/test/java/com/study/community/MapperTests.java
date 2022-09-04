@@ -1,7 +1,9 @@
 package com.study.community;
 
+import com.study.community.dao.LoginTicketMapper;
 import com.study.community.dao.UserMapper;
 import com.study.community.dao.UserMapper;
+import com.study.community.entity.LoginTicket;
 import com.study.community.entity.User;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +19,9 @@ public class MapperTests {
 
     @Autowired
     private UserMapper usermapper;
+
+    @Autowired
+    private LoginTicketMapper loginTicketMapper;
 
     @Test
     public void testSelectUser(){
@@ -49,5 +54,28 @@ public class MapperTests {
         System.out.println(rows);
         rows = usermapper.updatePassword(150,"12345678");
         System.out.println(rows);
+    }
+    @Test
+    public void selectUserNew(){
+        User user = usermapper.selectByName("admin1");
+        System.out.println(user.toString());
+    }
+
+    @Test
+    public void testInsertLoginTicket(){
+        LoginTicket loginTicket = new LoginTicket();
+        loginTicket.setTicket("abc");
+        loginTicket.setUserId(101);
+        loginTicket.setStatus(1);
+        loginTicket.setExpired(new Date(System.currentTimeMillis()+6000*6));
+        loginTicketMapper.insertLoginTicket(loginTicket);
+    }
+
+    @Test
+    public void testSelectTicket(){
+        LoginTicket loginTicket = loginTicketMapper.selectByTicket("abc");
+        System.out.println(loginTicket);
+        loginTicketMapper.updateStatus("abc",1);
+        System.out.println(loginTicket);
     }
 }
