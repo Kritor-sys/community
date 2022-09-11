@@ -16,7 +16,7 @@ spring:
       idle-timeout: 30000
   thymeleaf:
     cache: false
-#email
+  #email
   mail:
     host: smtp.163.com
     port: 465
@@ -24,6 +24,12 @@ spring:
     password: TIOBIDAXVOMJCTGE
     protocol: smtps
     properties.mail.smtp.ssl.enable: true
+#RedisProperties
+  redis:
+    database: 11
+    host: 127.0.0.1
+
+    port: 6379
 
 #mybatis properties
 mybatis:
@@ -37,3 +43,5 @@ mybatis:
 
 #community
 community.path.domain: http://localhost:8090
+community.path.upload: d:/code/data/upload
+
