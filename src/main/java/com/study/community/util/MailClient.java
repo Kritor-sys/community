@@ -17,6 +17,7 @@ import javax.mail.internet.MimeMessage;
 @Component
 public class MailClient {
 
+    //打印日志
     private static final Logger logger = LoggerFactory.getLogger(MailClient.class);
     @Autowired
     private JavaMailSender mailSender;
@@ -24,11 +25,17 @@ public class MailClient {
     private String from;
     public void sendMail(String to,String subject,String content){
         try {
+            //创建MimeMessage类
             MimeMessage message = mailSender.createMimeMessage();
+            //将MimeMessage放进MimeMessageHelper
             MimeMessageHelper helper = new MimeMessageHelper(message);
+            //邮件从哪里发送
             helper.setFrom(from);
+            //邮件发送给谁
             helper.setTo(to);
+            //设置邮件主题
             helper.setSubject(subject);
+            //设置文件内容,支持text/html
             helper.setText(content,true);
             mailSender.send(helper.getMimeMessage());
         } catch (MessagingException e) {

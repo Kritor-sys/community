@@ -4,12 +4,13 @@
              login_ticket(登录凭证表);
              user(用户表)。
              
-###创建实体类
+### 创建实体类
 User类.
 ###创建对应的接口
 UserMapper接口,定义user的增删改的方法。
 ###mybatis映射
 写xml文件映射到数据库，对数据库进行操作。user_mapper.xml.
+
 ```xml
 <!--对多列属性进行操作的时候，可以这样声名一个sql-->
 <sql id="selectFields">

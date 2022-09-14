@@ -2,7 +2,10 @@ package com.study.community.entity;
 
 import java.util.Date;
 
-public class LoginTicket {
+public class
+
+
+LoginTicket {
 
     private int id;
     private int userId;
